@@ -1,0 +1,187 @@
+# CSE Student Question Intent Dataset (v0.1)
+
+**Last updated:** 2026-03-10  
+**Dataset type:** Student-written short questions for *intent detection* (multi-class text classification).  
+**Collection method:** Google Form (self-submitted by undergraduate CSE students).  
+**Current size (after cleaning/dedup):** **3,838** question instances from **44** respondents.
+
+---
+
+## Dataset summary
+
+This dataset contains questions written by undergraduate CSE students (1st–4th year). Each question is associated with one **intent label** (20 intents) and a **language tag** (English, Bangla, or Mixed). The dataset is designed to support research on **question intent detection** in an academic/student-help context.
+
+---
+
+## Supported tasks
+
+- **Intent Detection / Intent Classification** (single-label, 20 classes)
+- Optional analyses:
+  - Performance by **year level**
+  - Performance by **language type** (en/bn/mixed)
+
+---
+
+## Languages
+
+- `en` (English)
+- `bn` (Bangla)
+- `mixed` (Bangla-English mixed / code-mixed)
+
+Current distribution (cleaned):
+- English (`en`): **1,414**
+- Mixed (`mixed`): **1,504**
+- Bangla (`bn`): **920**
+
+---
+
+## Label set (20 intents)
+
+- 1. Debugging / Error Fixing
+- 2. How-to Implementation
+- 3. Concept Explanation / Clarification
+- 4. Algorithm Choice / Strategy
+- 5. Data Structures
+- 6. Time & Space Complexity
+- 7. Programming Language Syntax / Features
+- 8. Object-Oriented Programming (OOP)
+- 9. Database / SQL
+- 10. Operating Systems (OS)
+- 11. Computer Networks
+- 12. Web Development
+- 13. Software Engineering / SDLC
+- 14. Machine Learning / AI
+- 15. Cybersecurity
+- 16. Competitive Programming / Problem Solving
+- 17. Project Guidance / System Architecture
+- 18. Tooling / Environment Setup
+- 19. Career / Internship / Interview Prep
+- 20. Exam / Assignment / Course Admin
+
+---
+
+## Data fields (CSV schema)
+
+The released CSV file is in **long format** (1 row = 1 question):
+
+| Column | Type | Description |
+|---|---|---|
+| `question_id` | string | Unique ID (e.g., Q000123) |
+| `respondent_id` | int | Anonymous respondent index (1..N in the current file) |
+| `timestamp` | datetime | Form submission timestamp (as provided in the sheet) |
+| `year` | int | Student year (1/2/3/4) |
+| `intent_id` | int | Intent ID (1..20) |
+| `intent` | string | Intent name |
+| `language` | string | `en` / `bn` / `mixed` |
+| `text` | string | The question text |
+
+---
+
+## Cleaning and quality control
+
+**Performed in v0.1:**
+- Removed empty entries and obvious non-answers (e.g., “yes/no/null”, very short fragments).
+- Split multi-line entries into separate questions when users wrote multiple questions in one box.
+- Basic PII redaction:
+  - Emails → `[REDACTED_EMAIL]`
+  - Phone-like patterns → `[REDACTED_PHONE]`
+- Exact deduplication **within** `(intent_id, language, normalized_text)`.
+
+**Not yet fully handled (future versions):**
+- Near-duplicate detection (paraphrases).
+- Manual verification of student-selected intent labels (label noise estimation).
+- Advanced PII removal (names, IDs) if present inside text.
+
+---
+
+## Current dataset composition
+
+- **Respondents:** 44
+- **Questions (cleaned):** 3,838
+
+Year distribution (cleaned):
+- Year 1: **2,021**
+- Year 2: **685**
+- Year 3: **1,132**
+- Year 4: **0** *(currently missing / not collected yet)*
+
+---
+
+## Recommended splits for modeling
+
+To avoid label imbalance and make results comparable:
+- Use **stratified split** by `intent_id` (e.g., 80/10/10).
+- Report **Macro-F1** + per-class Precision/Recall.
+- Also report performance by:
+  - language (`en`, `bn`, `mixed`)
+  - year (1/2/3/4) once year-4 data exists
+
+---
+
+## Intended use
+
+- Training and evaluating intent detection models for:
+  - student Q&A assistants
+  - academic helpdesk/chatbots
+  - educational NLP research (code-mixed + student domain)
+
+---
+
+## Limitations and bias notes
+
+- **Selection bias:** Volunteers submitting via Google Form; may not represent all students.
+- **Label noise:** Students choose intents; some questions may be miscategorized.
+- **Year imbalance:** Year-4 data is currently absent in v0.1.
+- **Domain bias:** CSE-centric topics; generalization to other domains may be limited.
+
+---
+
+## Label distribution (v0.1)
+
+The table below reports the number of questions per intent, with breakdown by language.
+
+|   intent_id | intent                                    |   total |   en |   mixed |   bn |
+|------------:|:------------------------------------------|--------:|-----:|--------:|-----:|
+|           1 | Debugging / Error Fixing                  |     198 |   77 |      81 |   40 |
+|           2 | How-to Implementation                     |     206 |   84 |      81 |   41 |
+|           3 | Concept Explanation / Clarification       |     191 |   74 |      80 |   37 |
+|           4 | Algorithm Choice / Strategy               |     199 |   77 |      82 |   40 |
+|           5 | Data Structures                           |     181 |   68 |      76 |   37 |
+|           6 | Time & Space Complexity                   |     186 |   69 |      80 |   37 |
+|           7 | Programming Language Syntax / Features    |     189 |   73 |      78 |   38 |
+|           8 | Object-Oriented Programming (OOP)         |     181 |   74 |      73 |   34 |
+|           9 | Database / SQL                            |     182 |   68 |      78 |   36 |
+|          10 | Operating Systems (OS)                    |     191 |   73 |      78 |   40 |
+|          11 | Computer Networks                         |     190 |   73 |      77 |   40 |
+|          12 | Web Development                           |     189 |   73 |      77 |   39 |
+|          13 | Software Engineering / SDLC               |     180 |   69 |      74 |   37 |
+|          14 | Machine Learning / AI                     |     179 |   65 |      76 |   38 |
+|          15 | Cybersecurity                             |     175 |   67 |      72 |   36 |
+|          16 | Competitive Programming / Problem Solving |     187 |   75 |      75 |   37 |
+|          17 | Project Guidance / System Architecture    |     176 |   66 |      75 |   35 |
+|          18 | Tooling / Environment Setup               |     156 |   64 |      61 |   31 |
+|          19 | Career / Internship / Interview Prep      |     165 |   64 |      68 |   33 |
+|          20 | Exam / Assignment / Course Admin          |     337 |   61 |      62 |  214 |
+
+---
+
+## Citation (placeholder)
+
+If you publish with this dataset, include a citation like:
+
+> Author(s). *CSE Student Question Intent Dataset (v0.1).* 2026-03-10.  
+
+(Replace with your final paper citation once available.)
+
+---
+
+## License
+
+Choose a license before public release (examples: **CC BY 4.0**, **CC BY-NC 4.0**).  
+Make sure your consent statement aligns with your chosen license.
+
+---
+
+## Contact
+
+Project team: *[add lab / institution / email here]*  

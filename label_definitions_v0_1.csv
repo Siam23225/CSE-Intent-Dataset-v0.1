@@ -1,0 +1,21 @@
+intent_id,intent,description,example_english,example_mixed
+1,Debugging / Error Fixing,Fixing code errors and understanding why code fails,Why do I get a NullPointerException in Java?,Bhai amar code e segmentation fault hocche keno?
+2,How-to Implementation,Asking how to implement a feature algorithm or program in code,How do I implement binary search in Python?,Python e linked list implement korbo kivabe?
+3,Concept Explanation / Clarification,Requesting explanation of a concept theory or technical idea,What is recursion and how does it work?,Recursion ta easy kore explain korben?
+4,Algorithm Choice / Strategy,Choosing the best algorithm or approach for solving a problem,Should I use BFS or DFS for this problem and why?,Eikhane BFS use korbo naki DFS konta better hobe?
+5,Data Structures,Questions about selecting or using data structures such as arrays stacks trees and graphs,When should I use a hash map instead of an array?,Array na hash map use korle advantage ki?
+6,Time & Space Complexity,Analyzing Big O performance and optimizing runtime or memory usage,What is the time complexity of this nested loop?,Ei code er Big O ki optimize korar way ache?
+7,Programming Language Syntax / Features,Questions about language specific syntax rules built in functions or behavior,What is the difference between == and .equals() in Java?,Java te == ar .equals() er difference ki?
+8,Object-Oriented Programming (OOP),Questions about classes inheritance polymorphism encapsulation abstraction and interfaces,When should I use an interface instead of an abstract class?,Interface naki abstract class konta use korbo why?
+9,Database / SQL,Questions about SQL queries schema design joins normalization and indexing,What is the difference between INNER JOIN and LEFT JOIN?,INNER JOIN ar LEFT JOIN er difference ki example den?
+10,Operating Systems (OS),Questions about processes threads scheduling memory management deadlocks and paging,What is the difference between a process and a thread?,Process ar thread er difference ta short e bolen?
+11,Computer Networks,Questions about networking concepts such as TCP IP routing DNS HTTP and protocols,Why is TCP considered reliable compared to UDP?,TCP reliable keno UDP theke difference ki?
+12,Web Development,Questions about frontend backend APIs authentication frameworks and web app development,How do I connect a React frontend to a REST API?,React theke API call korbo kivabe axios use korbo?
+13,Software Engineering / SDLC,Questions about software process testing UML Git requirements Agile and development practices,How do I write effective unit tests for my project?,Unit test lekhar best practice ki JUnit naki pytest?
+14,Machine Learning / AI,Questions about machine learning and AI concepts model training evaluation and overfitting,What is overfitting and how can I prevent it?,Overfitting keno hoy prevent korar technique ki?
+15,Cybersecurity,Questions about attacks defenses cryptography and secure coding practices,What is SQL injection and how do I prevent it?,SQL injection attack ta ki prevent korbo kivabe?
+16,Competitive Programming / Problem Solving,Questions about solving algorithmic problems under constraints with efficient approaches,Why does my solution get TLE and how can I optimize it?,Amar solution TLE hocche optimize korar trick ki?
+17,Project Guidance / System Architecture,Questions about planning a project choosing a tech stack and designing system modules,How should I design the modules for a final year project?,Final year project er architecture kivabe design korbo?
+18,Tooling / Environment Setup,Questions about setting up IDEs Git environments Docker dependencies and development tools,How do I fix pip is not recognized on Windows?,VS Code e Python interpreter set korbo kivabe?
+19,Career / Internship / Interview Prep,Questions about career planning internships interviews CV and LinkedIn preparation,How should I prepare for a software engineering internship interview?,Internship interview er jonno DS Algo ki porbo first?
+20,Exam / Assignment / Course Admin,Questions about exams assignments grading deadlines submissions and course rules,Which topics are most important for the OS midterm?,Assignment submit korar format ki late dile penalty hobe?
